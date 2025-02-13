@@ -39,7 +39,6 @@ enum Caption {
     case caption2m12
 }
 
-
 extension Font {
     static func wantedSansFont(weight: FontWeight, ofSize fontSize: CGFloat) -> Font {
         return Font.custom(weight.rawValue, size: fontSize)
