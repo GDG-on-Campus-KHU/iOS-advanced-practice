@@ -11,7 +11,7 @@ import SwiftUI
 struct BBIP_CloneApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            UserHomeView()
         }
     }
 }
