@@ -1,5 +1,5 @@
 //
-//  TabViewModel.swift
+//  TabBarViewModel.swift
 //  BBIP-Clone
 //
 //  Created by HanJW on 2/20/25.
@@ -12,7 +12,7 @@ enum Tab {
     case studyHome
 }
 
-class TabViewModel: ObservableObject {
+class TabBarViewModel: ObservableObject {
     @Published var selectedTab: Tab
     @Published var userHomeCount: Int
     @Published var studyHomeCount: Int
@@ -28,7 +28,7 @@ class TabViewModel: ObservableObject {
     }
 }
 
-extension TabViewModel {
+extension TabBarViewModel {
     func setUserHome(_ count: Int) {
         userHomeCount = count
     }
