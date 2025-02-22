@@ -18,7 +18,7 @@ class TabBarViewModel: ObservableObject {
     @Published var studyHomeCount: Int
     
     init(
-        selectedTab: Tab = .studyHome,
+        selectedTab: Tab = .userHome,
         userHomeCount: Int = 0,
         studyHomeCount: Int = 0
     ) {
