@@ -9,8 +9,9 @@ import SwiftUI
 
 struct UserHomeView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-            .font(.title(.title1sb42))
+        TitleView(title: "게시판")
+        
+        //전체보기 버튼
     }
 }
 
