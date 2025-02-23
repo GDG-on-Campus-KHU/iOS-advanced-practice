@@ -9,9 +9,11 @@ import SwiftUI
 
 struct UserHomeView: View {
     var body: some View {
-        TitleView(title: "게시판")
-        
-        //전체보기 버튼
+        HStack {
+            TitleView(title: "게시판")
+            
+            TitleButtonView()
+        }
     }
 }
 

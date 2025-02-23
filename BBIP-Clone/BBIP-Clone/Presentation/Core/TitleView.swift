@@ -12,12 +12,14 @@ struct TitleView: View {
     
     var body: some View {
         HStack {
+            Spacer()
+                .frame(width: 19)
+
             Text(title)
                 .font(.body(.body1b16))
                 .frame(height: 19, alignment: .leading)
             
             Spacer()
         }
-        .padding(.horizontal, 19)
     }
 }
