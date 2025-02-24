@@ -1,19 +1,18 @@
 //
-//  ContentView.swift
+//  StudyHomeView.swift
 //  BBIP-Clone
 //
-//  Created by HanJW on 2/13/25.
+//  Created by HanJW on 2/20/25.
 //
 
 import SwiftUI
 
-struct ContentView: View {
+struct StudyHomeView: View {
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-            .font(.title(.title1sb42))
     }
 }
 
 #Preview {
-    ContentView()
+    StudyHomeView()
 }
