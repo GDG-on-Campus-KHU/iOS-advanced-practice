@@ -16,7 +16,7 @@ struct TitleView: View {
                 .frame(width: 28)
 
             Text(title)
-                .font(.body(.body1b16))
+                .font(.wantedSansBold(ofSize: 16))
                 .frame(height: 19, alignment: .leading)
             
             Spacer()
