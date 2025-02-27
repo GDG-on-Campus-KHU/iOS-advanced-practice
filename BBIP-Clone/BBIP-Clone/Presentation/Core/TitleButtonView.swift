@@ -13,7 +13,7 @@ struct TitleButtonView: View {
             Spacer()
             
             Text("전체보기")
-                .font(.body(.body2m14))
+                .font(.wantedSansMedium(ofSize: 14))
             //color 수정 필요
                 .foregroundColor(.gray)
             

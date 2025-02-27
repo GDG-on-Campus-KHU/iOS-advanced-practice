@@ -32,7 +32,7 @@ struct ScrollBoardView: View {
                 
                 // CapsuleView로 수정
                 Text(title)
-                    .font(.caption(.caption2m12))
+                    .font(.wantedSansMedium(ofSize: 12))
                     .foregroundColor(.red)
                     .padding(.horizontal, 8)
                     .padding(.vertical, 4)
@@ -50,7 +50,7 @@ struct ScrollBoardView: View {
                     .frame(width: 13)
                 
                 Text(content)
-                    .font(.body(.body2m14))
+                    .font(.wantedSansMedium(ofSize: 14))
                     .foregroundColor(.black)
                     .frame(width: 144, height: 34, alignment: .leading)
                     .multilineTextAlignment(.leading)
@@ -64,7 +64,7 @@ struct ScrollBoardView: View {
                 Spacer()
                 
                 Text(uploadedTime)
-                    .font(.caption(.caption2m12))
+                    .font(.wantedSansMedium(ofSize: 12))
                 //color 수정 필요
                     .foregroundColor(.gray)
                 
