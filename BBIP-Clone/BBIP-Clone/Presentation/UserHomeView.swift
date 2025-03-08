@@ -26,6 +26,9 @@ struct UserHomeView: View {
             
             VStack {
                 //MARK: - "게시판"
+              
+                TimeRingView()
+                
                 HStack {
                     TitleView(title: "게시판")
                     
