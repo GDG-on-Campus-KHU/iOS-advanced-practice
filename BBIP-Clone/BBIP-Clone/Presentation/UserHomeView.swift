@@ -19,6 +19,8 @@ struct UserHomeView: View {
             Color(UIColor.systemGray6)
             
             VStack {
+                TimeRingView()
+                
                 HStack {
                     TitleView(title: "게시판")
                     
