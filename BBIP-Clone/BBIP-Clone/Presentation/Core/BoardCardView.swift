@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ScrollBoardView: View {
+struct BoardCardView: View {
     let title: String
     let content: String
     let timeDifference: Int
@@ -83,5 +83,5 @@ struct ScrollBoardView: View {
 }
 
 #Preview {
-    ScrollBoardView(title: "게시판", content: "오늘 스터디는 강서구 카페베네에서 진행합...", timeDifference: 1)
+    BoardCardView(title: "게시판", content: "오늘 스터디는 강서구 카페 베네에서 진행합니달라", timeDifference: 1)
 }

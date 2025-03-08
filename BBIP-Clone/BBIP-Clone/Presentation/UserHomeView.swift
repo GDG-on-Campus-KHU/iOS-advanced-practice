@@ -40,7 +40,7 @@ struct UserHomeView: View {
                         ForEach(cardsBoard.indices, id: \.self) { index in
                             let card = cardsBoard[index]
                             
-                            ScrollBoardView(
+                            BoardCardView(
                                 title: card.title,
                                 content: card.content,
                                 timeDifference: card.timeDifference
