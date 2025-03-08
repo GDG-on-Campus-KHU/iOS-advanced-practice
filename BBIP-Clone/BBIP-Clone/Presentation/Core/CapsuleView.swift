@@ -10,26 +10,29 @@ enum capsuletype{
     case white_red
     case white_gray
     case gray_gray
+    case red_white
     
     var backgroundColor: Color {
         switch self {
         case .white_red: return Color.mainWhite
         case .white_gray: return Color.mainWhite
         case .gray_gray: return Color.gray2
+        case .red_white: return Color.primary3
         }
     }
     
     var textColor: Color {
         switch self {
         case .white_red: return Color.primary3
-        case .white_gray: return Color.gray8
+        case .white_gray: return Color.gray7
         case .gray_gray: return Color.gray8
+        case .red_white: return Color.mainWhite
         }
     }
     
     var hasBorder: Bool {
             switch self {
-            case .gray_gray: return false
+            case .gray_gray, .red_white: return false
             default: return true
             }
         }
@@ -74,4 +77,5 @@ extension View {
     CapsuleView(title: "asdf", type: .white_red)
     CapsuleView(title: "asdf", type: .white_gray)
     CapsuleView(title: "asdf", type: .gray_gray)
+    CapsuleView(title: "asdf", type: .red_white)
 }
