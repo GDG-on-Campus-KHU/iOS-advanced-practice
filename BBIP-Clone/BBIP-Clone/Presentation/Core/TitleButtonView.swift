@@ -9,22 +9,26 @@ import SwiftUI
 
 struct TitleButtonView: View {
     var body: some View {
-        HStack {
+        VStack {
+            HStack {
+                Spacer()
+                
+                Text("전체보기")
+                    .font(.wantedSansMedium(ofSize: 14))
+                    .foregroundStyle(Color(.gray7))
+                
+                Spacer()
+                    .frame(width: 4)
+                
+                Image("arrow")
+                    .frame(width: 12, height: 12)
+                
+                Spacer()
+                    .frame(width: 20)
+            }
+            
             Spacer()
-            
-            Text("전체보기")
-                .font(.wantedSansMedium(ofSize: 14))
-            //color 수정 필요
-                .foregroundColor(.gray)
-            
-            Spacer()
-                .frame(width: 4)
-            
-            Image("arrow")
-                .frame(width: 12, height: 12)
-            
-            Spacer()
-                .frame(width: 20)
+                .frame(height: 12)
         }
     }
 }
