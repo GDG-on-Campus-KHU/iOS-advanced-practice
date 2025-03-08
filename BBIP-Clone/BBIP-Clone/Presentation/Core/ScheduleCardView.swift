@@ -8,11 +8,17 @@
 import SwiftUI
 
 struct ScheduleCardView: View {
-    let iconImage: String
-    let dDay: (year: Int, month: Int, day: Int)
-    let scheduleTitle: String
+    private let iconImage: String
+    private let dDay: (year: Int, month: Int, day: Int)
+    private let scheduleTitle: String
     
-    var dDayInput: String {
+    init(iconImage: String, dDay: (year: Int, month: Int, day: Int), scheduleTitle: String) {
+        self.iconImage = iconImage
+        self.dDay = dDay
+        self.scheduleTitle = scheduleTitle
+    }
+    
+    private var dDayInput: String {
         let currentDate = Calendar.current.startOfDay(for: Date())
         
         var dateComponents = DateComponents()
@@ -36,9 +42,8 @@ struct ScheduleCardView: View {
                 .frame(height: 15)
             
             Image(iconImage)
-                    .resizable()
-//                    .scaledToFit()
-                    .frame(width: 53, height: 53)
+                .resizable()
+                .frame(width: 53, height: 53)
             
             Spacer()
                 .frame(height: 12)
@@ -65,7 +70,3 @@ struct ScheduleCardView: View {
         .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 2)
     }
 }
-
-//#Preview {
-//    ScheduleCardView(iconImage: "ic_circular_gloves", dDay: (year: 2025, month: 3, day: 22), scheduleTitle: "JLPT N2 접수")
-//}
