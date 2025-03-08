@@ -21,12 +21,10 @@ private var cardsSchedule = [
 
 struct UserHomeView: View {
     var body: some View {
-        ZStack {
-            Color(UIColor.systemGray6)
-            
+        ScrollView {
             VStack {
                 //MARK: - "게시판"
-              
+                
                 TimeRingView()
                 
                 HStack {
@@ -92,9 +90,11 @@ struct UserHomeView: View {
             }
             .ignoresSafeArea()
         }
+        .background(Color(UIColor.systemGray6))
+        .scrollIndicators(.never)
     }
 }
 
-//#Preview {
-//    UserHomeView()
-//}
+#Preview {
+    UserHomeView()
+}
