@@ -8,11 +8,17 @@
 import SwiftUI
 
 struct BoardCardView: View {
-    let title: String
-    let content: String
-    let timeDifference: Int
+    private let boardTitle: String
+    private let content: String
+    private let timeDifference: Int
+  
+    init(title: String, content: String, timeDifference: Int) {
+        self.boardTitle = title
+        self.content = content
+        self.timeDifference = timeDifference
+    }
     
-    var uploadedTime: String {
+    private var uploadedTime: String {
         if timeDifference < 24 {
             return "\(timeDifference)시간 전"
         } else {
@@ -31,7 +37,7 @@ struct BoardCardView: View {
                     .frame(width: 13)
                 
                 // CapsuleView로 수정
-                Text(title)
+                Text(boardTitle)
                     .font(.wantedSansMedium(ofSize: 12))
                     .foregroundColor(.red)
                     .padding(.horizontal, 8)
@@ -80,8 +86,4 @@ struct BoardCardView: View {
         .cornerRadius(12)
         .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 2)
     }
-}
-
-#Preview {
-    BoardCardView(title: "게시판", content: "오늘 스터디는 강서구 카페 베네에서 진행합니달라", timeDifference: 1)
 }

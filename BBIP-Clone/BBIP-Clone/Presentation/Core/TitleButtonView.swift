@@ -28,7 +28,3 @@ struct TitleButtonView: View {
         }
     }
 }
-
-#Preview {
-    TitleButtonView()
-}

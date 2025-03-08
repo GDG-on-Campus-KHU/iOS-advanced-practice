@@ -46,20 +46,13 @@ private struct DividerView: View {
             
             Image("group_red")
                 .shadow(radius: 10, x: 0, y: 0)
-//                .blur(radius: 11)
-//                .opacity(0.15)
                 .offset(y: 34)
             
             Image("tabBar")
                 .edgesIgnoringSafeArea(.bottom)
                 .frame(maxWidth: .infinity)
                 .shadow(radius: 15, x: 0, y: -2)
-//                .blur(radius: 18.7)
                 .opacity(0.15)
         }
     }
-}
-
-#Preview {
-    TabBarView()
 }
