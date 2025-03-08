@@ -15,8 +15,7 @@ struct TitleButtonView: View {
                 
                 Text("전체보기")
                     .font(.wantedSansMedium(ofSize: 14))
-                //color 수정 필요
-                    .foregroundColor(.gray)
+                    .foregroundStyle(Color(.gray7))
                 
                 Spacer()
                     .frame(width: 4)

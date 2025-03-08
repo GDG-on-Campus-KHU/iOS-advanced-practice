@@ -19,6 +19,7 @@ struct TitleView: View {
                 Text(title)
                     .font(.wantedSansBold(ofSize: 16))
                     .frame(height: 19, alignment: .leading)
+                    .foregroundStyle(Color(.gray8))
                 
                 Spacer()
             }
