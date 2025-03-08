@@ -50,7 +50,7 @@ struct NoticeView: View {
                             .frame(width: 4, height: 4),
                         alignment: .topTrailing
                     )
-                    .padding(.trailing, 6)
+                    .padding(.trailing, 5)
                 
                 
                 
