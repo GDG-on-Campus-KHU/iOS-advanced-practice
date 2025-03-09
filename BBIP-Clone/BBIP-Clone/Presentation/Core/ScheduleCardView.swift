@@ -12,7 +12,11 @@ struct ScheduleCardView: View {
     private let dDay: (year: Int, month: Int, day: Int)
     private let scheduleTitle: String
     
-    init(iconImage: String, dDay: (year: Int, month: Int, day: Int), scheduleTitle: String) {
+    init(
+        iconImage: String,
+        dDay: (year: Int, month: Int, day: Int),
+        scheduleTitle: String
+    ) {
         self.iconImage = iconImage
         self.dDay = dDay
         self.scheduleTitle = scheduleTitle
@@ -63,7 +67,6 @@ struct ScheduleCardView: View {
             Spacer()
                 .frame(height: 24)
         }
-        .padding()
         .frame(width: 133, height: 146)
         .background(Color.white)
         .cornerRadius(12)

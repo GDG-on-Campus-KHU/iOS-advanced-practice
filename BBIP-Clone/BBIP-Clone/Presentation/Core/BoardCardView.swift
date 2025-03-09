@@ -1,5 +1,5 @@
 //
-//  ScrollBoardView.swift
+//  BoardCardView.swift
 //  BBIP-Clone
 //
 //  Created by HanJW on 2/24/25.
@@ -12,7 +12,11 @@ struct BoardCardView: View {
     private let content: String
     private let timeDifference: Int
   
-    init(title: String, content: String, timeDifference: Int) {
+    init(
+        title: String,
+        content: String,
+        timeDifference: Int
+    ) {
         self.boardTitle = title
         self.content = content
         self.timeDifference = timeDifference

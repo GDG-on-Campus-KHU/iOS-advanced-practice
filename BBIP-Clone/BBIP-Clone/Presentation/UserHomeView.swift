@@ -8,8 +8,8 @@
 import SwiftUI
 
 private var cardsBoard = [
-    (title: "포트폴리오 스터디", content: "오늘 스터디는 강서구 카페 베네에서 진행합니달라", timeDifference: 1),
-    (title: "JLPT N2 청해 스터디", content: "이거 문제 어우에에ㅜㅇㅇ 못 풀겠져엉 오ㅜㅇ애", timeDifference: 24),
+    (title: "포트폴리오 스터디", content: "오늘 스터디는 강서구 카페 베네에서 진행합니달라오늘 스터디는 강서구 카페 베네에서 진행합니달라", timeDifference: 1),
+    (title: "JLPT N2 청해 스터디", content: "이거 문제 어우에에ㅜㅇㅇ 못 풀겠져엉 오ㅜㅇ애이거 문제 어우에에ㅜㅇㅇ 못 풀겠져엉 오ㅜㅇ애", timeDifference: 24),
     (title: "JLPT N2 청해 스터디", content: "이거 문제 어우에에ㅜㅇㅇ 못 풀겠져엉 오ㅜㅇ애.", timeDifference: 999999999999)
 ]
 
@@ -90,11 +90,7 @@ struct UserHomeView: View {
             }
             .ignoresSafeArea()
         }
-        .background(Color(UIColor.systemGray6))
+        .background(Color(.gray1))
         .scrollIndicators(.never)
     }
-}
-
-#Preview {
-    UserHomeView()
 }
