@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct MemberCardView: View {
-    private let iconImage: String
+    private let imgName: String
     private let name: String
     private let position: String
     
     init(
-        iconImage: String,
+        imgName: String,
         name: String,
         position: String
     ) {
-        self.iconImage = iconImage
+        self.imgName = imgName
         self.name = name
         self.position = position
     }
@@ -27,7 +27,7 @@ struct MemberCardView: View {
             Spacer()
                 .frame(height: 13)
             
-            Image(iconImage)
+            Image(imgName)
                 .resizable()
                 .frame(width: 40, height: 40)
                 .aspectRatio(contentMode: .fit)

@@ -14,19 +14,21 @@ private var cardsBoard = [
 ]
 
 private var cardsSchedule = [
-    (iconImage: "ic_circular_gloves", dDay: (year: 2025, month: 3, day: 22), scheduleTitle: "JLPT N2 접수"),
-    (iconImage: "ic_circular_keyboard", dDay: (year: 2025, month: 3, day: 30), scheduleTitle: "포트폴리오"),
-    (iconImage: "ic_circular_pen", dDay: (year: 2025, month: 2, day: 28), scheduleTitle: "3차 모고")
+    (imgName: "ic_circular_gloves", dDay: (year: 2025, month: 3, day: 22), scheduleTitle: "JLPT N2 접수"),
+    (imgName: "ic_circular_keyboard", dDay: (year: 2025, month: 3, day: 30), scheduleTitle: "포트폴리오"),
+    (imgName: "ic_circular_pen", dDay: (year: 2025, month: 2, day: 28), scheduleTitle: "3차 모고")
 ]
 
 struct UserHomeView: View {
     var body: some View {
         ScrollView {
             VStack {
-                //MARK: - "게시판"
+                //MARK: - Header
                 
+                //MARK: - Time Ring
                 TimeRingView()
                 
+                //MARK: - "게시판"
                 HStack {
                     TitleView(title: "게시판")
                     
@@ -35,9 +37,6 @@ struct UserHomeView: View {
                 
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 8) {
-                        Spacer()
-                            .frame(width: 17)
-                        
                         ForEach(cardsBoard.indices, id: \.self) { index in
                             let card = cardsBoard[index]
                             
@@ -47,9 +46,6 @@ struct UserHomeView: View {
                                 timeDifference: card.timeDifference
                             )
                         }
-                        
-                        Spacer()
-                            .frame(width: 17)
                     }
                 }
                 
@@ -67,18 +63,15 @@ struct UserHomeView: View {
                 
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 8) {
-                        Spacer()
-                            .frame(width: 17)
-                        
                         ForEach(cardsSchedule.indices, id: \.self) { index in
                             let card = cardsSchedule[index]
                             
-                            ScheduleCardView(iconImage: card.iconImage, dDay: card.dDay, scheduleTitle: card.scheduleTitle
+                            ScheduleCardView(
+                                imgName: card.imgName,
+                                dDay: card.dDay,
+                                scheduleTitle: card.scheduleTitle
                             )
                         }
-                        
-                        Spacer()
-                            .frame(width: 17)
                     }
                 }
                 
@@ -89,6 +82,7 @@ struct UserHomeView: View {
                 
             }
             .ignoresSafeArea()
+            .padding(.horizontal, 17)
         }
         .background(Color(.gray1))
         .scrollIndicators(.never)

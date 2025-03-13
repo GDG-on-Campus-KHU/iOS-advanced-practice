@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct ScheduleCardView: View {
-    private let iconImage: String
+    private let imgName: String
     private let dDay: (year: Int, month: Int, day: Int)
     private let scheduleTitle: String
     
     init(
-        iconImage: String,
+        imgName: String,
         dDay: (year: Int, month: Int, day: Int),
         scheduleTitle: String
     ) {
-        self.iconImage = iconImage
+        self.imgName = imgName
         self.dDay = dDay
         self.scheduleTitle = scheduleTitle
     }
@@ -45,7 +45,7 @@ struct ScheduleCardView: View {
             Spacer()
                 .frame(height: 15)
             
-            Image(iconImage)
+            Image(imgName)
                 .resizable()
                 .frame(width: 53, height: 53)
             
@@ -54,16 +54,15 @@ struct ScheduleCardView: View {
             
             Text(dDayInput)
                 .font(.wantedSansSemiBold(ofSize: 18))
-                .foregroundColor(.black)
+                .foregroundStyle(Color(.gray10))
             
             Spacer()
                 .frame(height: 4)
             
             Text(scheduleTitle)
                 .font(.wantedSansMedium(ofSize: 14))
-            //color 수정 필요
-                .foregroundColor(.gray)
-            
+                .foregroundStyle(Color(.gray7))
+
             Spacer()
                 .frame(height: 24)
         }

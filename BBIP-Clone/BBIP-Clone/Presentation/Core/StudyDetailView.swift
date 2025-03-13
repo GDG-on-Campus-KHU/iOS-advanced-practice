@@ -26,9 +26,6 @@ struct StudyDetailView: View {
                 
                 // MARK: - Header
                 HStack {
-                    Spacer()
-                        .frame(width: 20)
-                    
                     Text("TOEIC / IELTS 스터디")
                         .font(.wantedSansSemiBold(ofSize: 24))
                         .foregroundStyle(Color(.mainWhite))
@@ -38,33 +35,31 @@ struct StudyDetailView: View {
                     Image("ic_dots")
                         .resizable()
                         .frame(width: 20, height: 20)
-                    
-                    Spacer()
-                        .frame(width: 28)
                 }
                 .frame(height: 42)
+                .padding(.horizontal, 12)
                 
                 Spacer()
                     .frame(height: 12)
                 
-                // MARK: - NoticeView
-                NoticeView(title: "등록된 공지가 없어요", type: .gray8_gray6)
+                // MARK: - Notice View
+                //NoticeView로 변경
+                Capsule()
+                    .fill(Color(.gray8))
+                    .frame(height: 40)
                 
                 Spacer()
                     .frame(height: 18)
                 
                 // MARK: - Study Overview
-                // Overview Title
+                // Overview - Title
                 HStack {
-                    Spacer()
-                        .frame(width: 20)
-                    
                     //CapsuleView로 변경
                     Text("8"+"R")
                         .font(.wantedSansMedium(ofSize: 12))
                         .foregroundColor(Color(.mainWhite))
                         .padding(.horizontal, 8)
-                        .padding(.vertical, 6)
+                        .padding(.vertical, 5)
                         .background(
                             RoundedRectangle(cornerRadius: 10)
                                 .fill(Color(.primary3))
@@ -85,11 +80,8 @@ struct StudyDetailView: View {
                 Spacer()
                     .frame(height: 13)
                 
-                //Overview Contents
+                //Overview - Schedule
                 HStack {
-                    Spacer()
-                        .frame(width: 20)
-                    
                     Image("ic_cal_gray6")
                         .resizable()
                         .frame(width: 16.46, height: 16)
@@ -100,7 +92,7 @@ struct StudyDetailView: View {
                     Text("8월 14일 (수) / 12:00 ~ 18:00")
                         .font(.wantedSansMedium(ofSize: 12))
                         .foregroundStyle(Color(.gray2))
-                        .frame(maxWidth: 151)
+                        .frame(maxWidth: 151, alignment: .leading)
                     
                     Spacer()
                 }
@@ -109,10 +101,8 @@ struct StudyDetailView: View {
                 Spacer()
                     .frame(height: 9)
                 
+                //Overview - Location
                 HStack {
-                    Spacer()
-                        .frame(width: 20)
-                    
                     Image("ic_home_gray6")
                         .resizable()
                         .frame(width: 16.46, height: 16)
@@ -123,7 +113,7 @@ struct StudyDetailView: View {
                     Text("스타벅스 강남역nnnnnnnnn...")
                         .font(.wantedSansMedium(ofSize: 12))
                         .foregroundStyle(Color(.gray2))
-                        .frame(maxWidth: 151)
+                        .frame(maxWidth: 151, alignment: .leading)
                         .lineLimit(1)
                     
                     Spacer()
@@ -135,6 +125,7 @@ struct StudyDetailView: View {
                 
                 Spacer()
             }
+            .padding(.horizontal, 16)
             
             // MARK: - Boxing Ring Image
             VStack {
