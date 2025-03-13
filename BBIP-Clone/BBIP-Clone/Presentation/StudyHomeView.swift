@@ -25,12 +25,15 @@ struct StudyHomeView: View {
             VStack {
                 //MARK: - Study Home Main
                 
+                StudyDetailView()
                 
                 Spacer()
                     .frame(height: 27)
                 
                 //MARK: - "스터디 진척도"
                 TitleView(title: "스터디 진척도")
+                
+                //StudyProgressView()
                 
                 Spacer()
                     .frame(height: 23)
@@ -103,8 +106,8 @@ struct StudyHomeView: View {
                     }
                 }
             }
-            .ignoresSafeArea()
         }
+        .ignoresSafeArea()
         .background(Color(.gray1))
         .scrollIndicators(.never)
     }
