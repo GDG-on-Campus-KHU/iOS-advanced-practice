@@ -35,6 +35,17 @@ struct StudyHomeView: View {
                     TitleView(title: "스터디 진척도")
                     
                     ProgressBarView()
+                    TitleButtonView()
+                }
+                
+                WeeklyView()
+                
+                Spacer()
+                    .frame(height: 23)
+                
+                // MARK: - "게시판"
+                HStack {
+                    TitleView(title: "게시판")
                     
                     Spacer()
                         .frame(height: 23)
@@ -103,4 +114,7 @@ struct StudyHomeView: View {
         .background(Color(.gray1))
         .scrollIndicators(.never)
     }
+}
+#Preview {
+    StudyHomeView()
 }
