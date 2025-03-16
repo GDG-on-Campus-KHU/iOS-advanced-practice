@@ -21,76 +21,134 @@ private var cardsSchedule = [
 
 struct UserHomeView: View {
     var body: some View {
-        ScrollView {
-            VStack {
-                //MARK: - "게시판"
-                
-                TimeRingView()
-                
-                HStack {
-                    TitleView(title: "게시판")
+        ZStack(alignment: .top) {
+            Color.mainWhite
+                .frame(height: 130)
+                .edgesIgnoringSafeArea(.top)
+
+            VStack(spacing: 0) {
+                // 상단 고정 헤더
+    
+                HStack{
+                    Text("홈")
+                        .font(.wantedSansSemiBold(ofSize:22))
+                        .foregroundStyle(Color.mainBlack)
+                        .offset(x:-130)
+                    //.frame(maxWidth: .infinity)
+                        .padding()
+                    //.background(Color.mainWhite)
                     
-                    TitleButtonView()
+                    Image("notice_icon")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 30, height: 25)
+                        .offset(x:110)
+                        .overlay(
+                            Circle()
+                                .fill(.primary3)
+                                .offset(x:110)
+                                .frame(width: 4, height: 4),
+                            alignment: .topTrailing
+                        )
+                    
+                    Image("profile_icon")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 30, height: 25)
+                        .offset(x:110)
+                    
                 }
+            
+           
                 
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 8) {
-                        Spacer()
-                            .frame(width: 17)
+                //Divider()
+                
+                ScrollView {
+                    VStack {
+                        //MARK: - "공지"
+                        NoticeView(title: "다음주 스터디 하루 쉬어갑니다! 확인 해주세요...!", type: .gray2_gray8)
+                            .padding()
                         
-                        ForEach(cardsBoard.indices, id: \.self) { index in
-                            let card = cardsBoard[index]
+                        
+                        
+                        //MARK: - "게시판"
+                        
+                        TimeRingView()
+                        
+                        HStack {
+                            TitleView(title: "게시판")
                             
-                            BoardCardView(
-                                title: card.title,
-                                content: card.content,
-                                timeDifference: card.timeDifference
-                            )
+                            TitleButtonView()
+                        }
+                        
+                        
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            HStack(spacing: 8) {
+                                Spacer()
+                                    .frame(width: 17)
+                                
+                                ForEach(cardsBoard.indices, id: \.self) { index in
+                                    let card = cardsBoard[index]
+                                    
+                                    BoardCardView(
+                                        title: card.title,
+                                        content: card.content,
+                                        timeDifference: card.timeDifference
+                                    )
+                                }
+                                
+                                Spacer()
+                                    .frame(width: 17)
+                            }
                         }
                         
                         Spacer()
-                            .frame(width: 17)
-                    }
-                }
-                
-                Spacer()
-                    .frame(height: 23)
-                
-                //MARK: - "이번 주 스터디"
-                TitleView(title: "이번 주 스터디")
-                
-                Spacer()
-                    .frame(height: 32)
-                
-                // MARK: - "다가오는 일정"
-                TitleView(title: "다가오는 일정")
-                
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 8) {
-                        Spacer()
-                            .frame(width: 17)
+                            .frame(height: 43)
                         
-                        ForEach(cardsSchedule.indices, id: \.self) { index in
-                            let card = cardsSchedule[index]
-                            
-                            ScheduleCardView(iconImage: card.iconImage, dDay: card.dDay, scheduleTitle: card.scheduleTitle
-                            )
+                        //MARK: - "이번 주 스터디"
+                        //TitleView(title: "이번 주 스터디")
+                        StudyListView()
+                        
+                        
+                        
+                        
+                        
+                        // MARK: - "다가오는 일정"
+                        TitleView(title: "다가오는 일정")
+                        
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            HStack(spacing: 8) {
+                                Spacer()
+                                    .frame(width: 17)
+                                
+                                ForEach(cardsSchedule.indices, id: \.self) { index in
+                                    let card = cardsSchedule[index]
+                                    
+                                    ScheduleCardView(iconImage: card.iconImage, dDay: card.dDay, scheduleTitle: card.scheduleTitle
+                                    )
+                                }
+                                
+                                Spacer()
+                                    .frame(width: 17)
+                            }
                         }
                         
                         Spacer()
-                            .frame(width: 17)
+                            .frame(height: 32)
+                        
+                        //MARK: - "BBIP 이용 가이드"
+                        GuideView()
+                        
+                        
                     }
+                    .ignoresSafeArea()
                 }
-                
-                Spacer()
-                    .frame(height: 32)
-                
-                //MARK: - "BBIP 이용 가이드"
-                
+                .background(Color(.gray1))
+                .scrollIndicators(.never)
             }
-            .ignoresSafeArea()
         }
-        .background(Color(.gray1))
-        .scrollIndicators(.never)
     }
+}
+#Preview {
+    UserHomeView()
 }

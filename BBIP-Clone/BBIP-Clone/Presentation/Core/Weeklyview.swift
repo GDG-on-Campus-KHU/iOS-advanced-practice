@@ -29,22 +29,22 @@ struct WeeklyView: View {
     
     
     var body: some View {
-        VStack(alignment: .leading, spacing:5) {
-            HStack() {
-                Text("주차별활동")
-                    .font(.wantedSansBold(ofSize: 16))
-                    .foregroundStyle(Color.gray8)
-                
-                Spacer() // 왼쪽과 오른쪽 사이에 공간 추가
-                
-                Text("전체보기")
-                    .font(.wantedSansMedium(ofSize: 14))
-                    .foregroundStyle(Color.gray7)
-                Image("arrow")
-            }
-            .padding(.horizontal)
-            .frame(width: 400, alignment: .leading)
-            
+//        VStack(alignment: .leading, spacing:5) {
+//            HStack() {
+//                Text("주차별활동")
+//                    .font(.wantedSansBold(ofSize: 16))
+//                    .foregroundStyle(Color.gray8)
+//                
+//                Spacer() // 왼쪽과 오른쪽 사이에 공간 추가
+//                
+//                Text("전체보기")
+//                    .font(.wantedSansMedium(ofSize: 14))
+//                    .foregroundStyle(Color.gray7)
+//                Image("arrow")
+//            }
+//            .padding(.horizontal)
+//            .frame(width: 400, alignment: .leading)
+//            
             
             VStack(spacing:10) {
                 ForEach(Weekly.prefix(2)) { Week in
@@ -54,7 +54,7 @@ struct WeeklyView: View {
             .padding(.horizontal)
             .frame(height: 200) // 3개까지만 보이도록 제한
         }
-    }
+    
 }
 
 
