@@ -32,61 +32,58 @@ struct BoardCardView: View {
     }
     
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack{
             Spacer()
                 .frame(height: 12)
             
-            HStack {
-                Spacer()
-                    .frame(width: 13)
+            VStack(alignment: .leading) {
+                //MARK: - Board Title
+                HStack {
+                    // CapsuleView로 수정
+                    Text(boardTitle)
+                        .font(.wantedSansMedium(ofSize: 12))
+                        .foregroundColor(.red)
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 4)
+                        .background(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color.red, lineWidth: 1)
+                        )
+                }
                 
-                // CapsuleView로 수정
-                Text(boardTitle)
-                    .font(.wantedSansMedium(ofSize: 12))
-                    .foregroundColor(.red)
-                    .padding(.horizontal, 8)
-                    .padding(.vertical, 4)
-                    .background(
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(Color.red, lineWidth: 1)
-                    )
-            }
-            
-            Spacer()
-                .frame(height: 12)
-            
-            HStack {
                 Spacer()
-                    .frame(width: 13)
+                    .frame(height: 12)
                 
-                Text(content)
-                    .font(.wantedSansMedium(ofSize: 14))
-                    .foregroundColor(.black)
-                    .frame(width: 144, height: 34, alignment: .leading)
-                    .multilineTextAlignment(.leading)
-                    .lineLimit(2)
+                //MARK: - Board Content
+                HStack {
+                    Text(content)
+                        .font(.wantedSansMedium(ofSize: 14))
+                        .foregroundStyle(Color(.gray8))
+                        .frame(width: 144, height: 34, alignment: .leading)
+                        .multilineTextAlignment(.leading)
+                        .lineLimit(2)
+                }
+                
+                Spacer()
+                    .frame(height: 7)
             }
+            .padding(.horizontal, 13)
             
-            Spacer()
-                .frame(height: 7)
-            
+            //MARK: - Uploaded Time
             HStack {
                 Spacer()
                 
                 Text(uploadedTime)
                     .font(.wantedSansMedium(ofSize: 12))
-                //color 수정 필요
-                    .foregroundColor(.gray)
-                
-                Spacer()
-                    .frame(width: 13)
+                    .foregroundStyle(Color(.gray6))
             }
+            .padding(.horizontal, 13)
             
             Spacer()
                 .frame(height: 9)
         }
         .frame(width: 171, height: 115)
-        .background(Color.white)
+        .background(Color.mainWhite)
         .cornerRadius(12)
         .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 2)
     }

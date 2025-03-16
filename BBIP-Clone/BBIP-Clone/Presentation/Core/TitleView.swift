@@ -14,7 +14,7 @@ struct TitleView: View {
         VStack {
             HStack {
                 Spacer()
-                    .frame(width: 28)
+                    .frame(width: 11)
                 
                 Text(title)
                     .font(.wantedSansBold(ofSize: 16))

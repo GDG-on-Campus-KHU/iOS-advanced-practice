@@ -22,9 +22,6 @@ struct TitleButtonView: View {
                 
                 Image("arrow")
                     .frame(width: 12, height: 12)
-                
-                Spacer()
-                    .frame(width: 20)
             }
             
             Spacer()

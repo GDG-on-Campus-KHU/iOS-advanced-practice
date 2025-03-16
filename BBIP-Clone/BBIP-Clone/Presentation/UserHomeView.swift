@@ -14,13 +14,24 @@ private var cardsBoard = [
 ]
 
 private var cardsSchedule = [
-    (iconImage: "ic_circular_gloves", dDay: (year: 2025, month: 3, day: 22), scheduleTitle: "JLPT N2 접수"),
-    (iconImage: "ic_circular_keyboard", dDay: (year: 2025, month: 3, day: 30), scheduleTitle: "포트폴리오"),
-    (iconImage: "ic_circular_pen", dDay: (year: 2025, month: 2, day: 28), scheduleTitle: "3차 모고")
+    (imgName: "ic_circular_gloves", dDay: (year: 2025, month: 3, day: 22), scheduleTitle: "JLPT N2 접수"),
+    (imgName: "ic_circular_keyboard", dDay: (year: 2025, month: 3, day: 30), scheduleTitle: "포트폴리오"),
+    (imgName: "ic_circular_pen", dDay: (year: 2025, month: 2, day: 28), scheduleTitle: "3차 모고")
 ]
 
 struct UserHomeView: View {
     var body: some View {
+        ScrollView {
+            VStack {
+                //MARK: - Header
+                
+                //MARK: - Time Ring
+                TimeRingView()
+                
+                //MARK: - "게시판"
+                HStack {
+                    TitleView(title: "게시판")
+                  
         ZStack(alignment: .top) {
             Color.mainWhite
                 .frame(height: 130)
@@ -55,13 +66,15 @@ struct UserHomeView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: 30, height: 25)
-                        .offset(x:110)
-                    
+                        .offset(x:110)                    
                 }
             
            
                 
-                //Divider()
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 8) {
+                        ForEach(cardsBoard.indices, id: \.self) { index in
+                            let card = cardsBoard[index]
                 
                 ScrollView {
                     VStack {
@@ -100,6 +113,32 @@ struct UserHomeView: View {
                                 Spacer()
                                     .frame(width: 17)
                             }
+                        }
+                    }
+                }
+                
+                Spacer()
+                    .frame(height: 23)
+                
+                //MARK: - "이번 주 스터디"
+                TitleView(title: "이번 주 스터디")
+                
+                Spacer()
+                    .frame(height: 32)
+                
+                // MARK: - "다가오는 일정"
+                TitleView(title: "다가오는 일정")
+                
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 8) {
+                        ForEach(cardsSchedule.indices, id: \.self) { index in
+                            let card = cardsSchedule[index]
+                            
+                            ScheduleCardView(
+                                imgName: card.imgName,
+                                dDay: card.dDay,
+                                scheduleTitle: card.scheduleTitle
+                            )
                         }
                         
                         Spacer()
@@ -146,6 +185,8 @@ struct UserHomeView: View {
                 .background(Color(.gray1))
                 .scrollIndicators(.never)
             }
+            .ignoresSafeArea()
+            .padding(.horizontal, 17)
         }
     }
 }

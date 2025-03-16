@@ -14,9 +14,9 @@ private var cardsBoard = [
 ]
 
 private var cardsMember = [
-    (iconImage: "2dubu", name: "2dubu", position: "팀장"),
-    (iconImage: "binschocolate", name: "Bins", position: "팀원"),
-    (iconImage: "Gardeniaa101", name: "Grdn", position: "팀원")
+    (imgName: "2dubu", name: "2dubu", position: "팀장"),
+    (imgName: "binschocolate", name: "Bins", position: "팀원"),
+    (imgName: "Gardeniaa101", name: "Grdn", position: "팀원")
 ]
 
 struct StudyHomeView: View {
@@ -25,20 +25,16 @@ struct StudyHomeView: View {
             VStack {
                 //MARK: - Study Home Main
                 
+                StudyDetailView()
                 
                 Spacer()
                     .frame(height: 27)
                 
-                //MARK: - "스터디 진척도"
-                TitleView(title: "스터디 진척도")
-                
-                Spacer()
-                    .frame(height: 23)
-                
-                //MARK: - "주차별 활동"
-                HStack {
-                    TitleView(title: "주차별 활동")
+                VStack {
+                    //MARK: - "스터디 진척도"
+                    TitleView(title: "스터디 진척도")
                     
+                    ProgressBarView()
                     TitleButtonView()
                 }
                 
@@ -51,62 +47,70 @@ struct StudyHomeView: View {
                 HStack {
                     TitleView(title: "게시판")
                     
-                    TitleButtonView()
-                }
-                
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 8) {
-                        Spacer()
-                            .frame(width: 17)
+                    Spacer()
+                        .frame(height: 23)
+                    
+                    //MARK: - "주차별 활동"
+                    HStack {
+                        TitleView(title: "주차별 활동")
                         
-                        ForEach(cardsBoard.indices, id: \.self) { index in
-                            let card = cardsBoard[index]
-                            
-                            BoardCardView(
-                                title: card.title,
-                                content: card.content,
-                                timeDifference: card.timeDifference
-                            )
+                        TitleButtonView()
+                    }
+                    
+                    Spacer()
+                        .frame(height: 23)
+                    
+                    // MARK: - "게시판"
+                    HStack {
+                        TitleView(title: "게시판")
+                        
+                        TitleButtonView()
+                    }
+                    
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(spacing: 8) {
+                            ForEach(cardsBoard.indices, id: \.self) { index in
+                                let card = cardsBoard[index]
+                                
+                                BoardCardView(
+                                    title: card.title,
+                                    content: card.content,
+                                    timeDifference: card.timeDifference
+                                )
+                            }
                         }
-                        
-                        Spacer()
-                            .frame(width: 17)
+                    }
+                    
+                    Spacer()
+                        .frame(height: 23)
+                    
+                    //MARK: - "스터디원"
+                    TitleView(title: "스터디원")
+                    
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(spacing: 8) {
+                            ForEach(cardsMember.indices, id: \.self) { index in
+                                let card = cardsMember[index]
+                                
+                                MemberCardView(
+                                    imgName: card.imgName,
+                                    name: card.name,
+                                    position: card.position
+                                )
+                            }
+                            
+                            AddMemberButton {
+                                // "초대하기" 기능
+                                print("Add new member tapped")
+                            }
+                        }
                     }
                 }
-                
-                Spacer()
-                    .frame(height: 23)
-                
-                //MARK: - "스터디원"
-                TitleView(title: "스터디원")
-                
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 8) {
-                        Spacer()
-                            .frame(width: 17)
-                        
-                        ForEach(cardsMember.indices, id: \.self) { index in
-                            let card = cardsMember[index]
-                            
-                            MemberCardView(
-                                iconImage: card.iconImage,
-                                name: card.name,
-                                position: card.position
-                            )
-                        }
-                        
-                        AddMemberButton {
-                            // "초대하기" 기능
-                            print("Add new member tapped")
-                        }
-                        
-                        Spacer()
-                            .frame(width: 17)
-                    }
-                }
+                .padding(.horizontal, 17)
             }
-            .ignoresSafeArea()
+            
         }
+        .ignoresSafeArea()
         .background(Color(.gray1))
         .scrollIndicators(.never)
     }

@@ -82,4 +82,3 @@ struct NoticeView: View {
         .padding()
     NoticeView(title: "등록된 공지가 없어요", type: .gray8_gray6)
 }
-
