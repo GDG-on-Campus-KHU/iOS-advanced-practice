@@ -34,7 +34,7 @@ struct StudyHomeView: View {
                     //MARK: - "스터디 진척도"
                     TitleView(title: "스터디 진척도")
                     
-                    //ProgressBarView()
+                    ProgressBarView()
                     
                     Spacer()
                         .frame(height: 23)

@@ -20,6 +20,23 @@ struct StudyDetailView: View {
                 Spacer()
             }
             
+            // MARK: - Boxing Ring Image
+            VStack {
+                Spacer()
+                    .frame(height: 224)
+                
+                HStack {
+                    Spacer()
+                    
+                    Image("img_ring")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 302, height: 230)
+                }
+                
+                Spacer()
+            }
+            
             VStack {
                 Spacer()
                     .frame(height: 54)
@@ -63,7 +80,7 @@ struct StudyDetailView: View {
                         .background(
                             RoundedRectangle(cornerRadius: 10)
                                 .fill(Color(.primary3))
-                            )
+                        )
                     
                     Spacer()
                         .frame(width: 10)
@@ -119,30 +136,77 @@ struct StudyDetailView: View {
                     Spacer()
                 }
                 .frame(height: 16)
-
+                
+                Spacer()
+                    .frame(height: 225)
+                
                 // MARK: - 3 Buttons
-                
-                
-                Spacer()
-            }
-            .padding(.horizontal, 16)
-            
-            // MARK: - Boxing Ring Image
-            VStack {
-                Spacer()
-                    .frame(height: 224)
-                
-                HStack {
+                HStack() {
+                    Spacer()
+                        .frame(width: 30)
+                    
+                    // "출석 인증" 버튼
+                    Button(action: {
+                        // "출석 인증" 기능
+                        print("Attendance Managing Button Tapped")
+                    }) {
+                        VStack {
+                            Image("ic_gloves")
+                                .resizable()
+                                .frame(width: 50, height: 50)
+                                .padding(.vertical, 14)
+                            
+                            Text("출석 인증")
+                                .font(.wantedSansMedium(ofSize: 16))
+                                .foregroundStyle(Color(.gray8))
+                        }
+                    }
+                    
                     Spacer()
                     
-                    Image("img_ring")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 302, height: 230)
+                    // "장소확인" 버튼
+                    Button(action: {
+                        // "장소확인" 기능
+                        print("Location Button Tapped")
+                    }) {
+                        VStack {
+                            Image("ic_ring")
+                                .resizable()
+                                .frame(width: 50, height: 50)
+                                .padding(.vertical, 14)
+                            
+                            Text("장소확인")
+                                .font(.wantedSansMedium(ofSize: 16))
+                                .foregroundStyle(Color(.gray8))
+                        }
+                    }
+                    
+                    Spacer()
+                    
+                    // 아카이브 버튼
+                    Button(action: {
+                        // "아카이브" 기능
+                        print("Archive Button Tapped")
+                    }) {
+                        VStack {
+                            Image("ic_cup")
+                                .resizable()
+                                .frame(width: 50, height: 50)
+                                .padding(.vertical, 14)
+                            
+                            Text("아카이브")
+                                .font(.wantedSansMedium(ofSize: 16))
+                                .foregroundStyle(Color(.gray8))
+                        }
+                    }
+                    
+                    Spacer()
+                        .frame(width: 30)
                 }
-                
-                Spacer()
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 20)
             }
+            .padding(.horizontal, 16)
         }
     }
 }
