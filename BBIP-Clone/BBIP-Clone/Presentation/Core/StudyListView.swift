@@ -30,6 +30,7 @@ struct StudyListView: View {
             Text("이번 주 스터디")
                 .font(.wantedSansSemiBold(ofSize: 16))
                 .padding(.horizontal)
+                .foregroundStyle(Color.mainBlack)
 
             ScrollView {
                 VStack(spacing: 10) {

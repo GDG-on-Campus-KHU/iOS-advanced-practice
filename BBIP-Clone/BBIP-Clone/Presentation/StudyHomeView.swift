@@ -42,6 +42,8 @@ struct StudyHomeView: View {
                     TitleButtonView()
                 }
                 
+                WeeklyView()
+                
                 Spacer()
                     .frame(height: 23)
                 
@@ -108,4 +110,7 @@ struct StudyHomeView: View {
         .background(Color(.gray1))
         .scrollIndicators(.never)
     }
+}
+#Preview {
+    StudyHomeView()
 }
