@@ -23,29 +23,19 @@ struct StudyHomeView: View {
     var body: some View {
         ScrollView {
             VStack {
-                //MARK: - Study Home Main
-                
-                StudyDetailView()
-                
-                Spacer()
-                    .frame(height: 27)
+                VStack {
+                    //MARK: - Study Home Main
+                    StudyDetailView()
+                    
+                    Spacer()
+                        .frame(height: 27)
+                }
                 
                 VStack {
                     //MARK: - "스터디 진척도"
                     TitleView(title: "스터디 진척도")
                     
-                    ProgressBarView()
-                    TitleButtonView()
-                }
-                
-                WeeklyView()
-                
-                Spacer()
-                    .frame(height: 23)
-                
-                // MARK: - "게시판"
-                HStack {
-                    TitleView(title: "게시판")
+                    StudyProgressBarView()
                     
                     Spacer()
                         .frame(height: 23)
@@ -56,6 +46,8 @@ struct StudyHomeView: View {
                         
                         TitleButtonView()
                     }
+                    
+                    WeeklyView()
                     
                     Spacer()
                         .frame(height: 23)
@@ -79,6 +71,7 @@ struct StudyHomeView: View {
                                 )
                             }
                         }
+                        .padding(.horizontal, 17)
                     }
                     
                     Spacer()
@@ -104,17 +97,16 @@ struct StudyHomeView: View {
                                 print("Add new member tapped")
                             }
                         }
+                        .padding(.horizontal, 17)
                     }
+                    
+                    Spacer()
+                        .frame(height: 140)
                 }
-                .padding(.horizontal, 17)
             }
-            
         }
-        .ignoresSafeArea()
+        .ignoresSafeArea(edges: .top)
         .background(Color(.gray1))
         .scrollIndicators(.never)
     }
-}
-#Preview {
-    StudyHomeView()
 }
