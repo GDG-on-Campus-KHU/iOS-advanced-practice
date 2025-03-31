@@ -27,5 +27,6 @@ struct TitleButtonView: View {
             Spacer()
                 .frame(height: 12)
         }
+        .padding(.horizontal, 17)
     }
 }

@@ -27,10 +27,10 @@ struct StudyListView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
-            Text("이번 주 스터디")
-                .font(.wantedSansSemiBold(ofSize: 16))
-                .padding(.horizontal)
-                .foregroundStyle(Color.mainBlack)
+//            Text("이번 주 스터디")
+//                .font(.wantedSansSemiBold(ofSize: 16))
+//                .padding(.horizontal)
+//                .foregroundStyle(Color.mainBlack)
 
             ScrollView {
                 VStack(spacing: 10) {
